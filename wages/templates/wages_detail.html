@@ -1,0 +1,40 @@
+{% extends 'layout/base.html' %}
+
+{% block content %}
+<table class="table table-striped">
+    <thead>
+        <tr>
+        <th scope="col">{{ header.teacher_title }}</th>
+        <th scope="col">{{ header.salary_title }}</th>
+        <th scope="col">{{ header.tax_title }}</th>
+        <th scope="col">{{ header.deductions_title }}</th>
+        <th scope="col">{{ header.alimony_title }}</th>
+        <th scope="col">{{ header.net_title }}</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>
+                {{ teacher.teacher }}
+            </td>
+            <td>
+                {{ teacher.salary }}
+            </td>
+            <td>
+                {{ teacher.tax }}
+            </td>
+            <td>
+                {{ teacher.deductions }}
+            </td>
+            <td>
+                {{ teacher.alimony }}
+            </td>
+            <td>
+                {{ teacher.net }}
+            </td>
+        </tr>
+    </tbody>
+</table>
+<a class='btn btn-primary' href="{% url 'wages:show_teachers_grid' %}"> Обратно </a>
+{% endblock content %}
+    
