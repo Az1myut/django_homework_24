@@ -57,3 +57,14 @@ def classboard_view(request, pk=None) -> render:
         }
 
     return render(request=request, template_name=template_, context=context)
+
+def classboard_week_view(request)->render:
+    template_='classboard_week.html'
+    classboard_all=Classboard.objects.prefetch_related('teacher').select_related('group','class_name')
+    context = {
+        'classboard_all': classboard_all,
+        'groups': Group.objects.all(),
+        'days': ClassByDayChoices.choices,
+        'pairs': ClassPairChoices.choices,
+    }
+    return render(request,template_,context=context)

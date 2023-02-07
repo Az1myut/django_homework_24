@@ -1,0 +1,56 @@
+<!-- TODO -->
+<!-- {% extends 'layout/base.html' %}
+
+
+{% block content %}
+
+{% for group_item in groups %}
+<h2>{{ group_item }}</h2>
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <td></td>
+
+            {% for pair_item in pairs %}
+            <td>{{ pair_item.1 }}</td>
+            {% endfor %}
+
+        </tr>
+    </thead>
+    <tbody>
+
+        {% for day_item in days %}
+        <tr>
+            <td>{{ day_item.1}}</td>
+
+            {% for classboard_item in classboard_all %}
+
+            {% if classboard_item.group == group_item %}
+
+          
+
+            <td>
+                {{ classboard_item.class_name }}
+
+                    {% for teacher in classboard_item.teacher.all %}
+                        {{ teacher }}
+                    {% endfor %}
+
+
+            </td>
+            {% endif %}
+
+
+            {% endfor %}
+
+            {% endfor %}
+
+        </tr>
+
+    </tbody>
+
+</table>
+{% endfor %}
+
+
+{% endblock content %} -->

@@ -22,6 +22,7 @@ urlpatterns = [
     path('classes/', include('classes.urls', namespace='classes.classes')),
     path('classboard/', include('classboard.urls')),
     path('wages/', include('wages.urls', namespace='wages.wages')),
+    path('students/', include('students.urls', namespace='students.students')),
 
     path("accounts/", include("django.contrib.auth.urls")),
 
