@@ -2,7 +2,7 @@ import datetime
 from django.db.models import Count, Sum, Q, F
 from django.shortcuts import render, get_object_or_404
 from wages.models import Wage
-import icecream as ic
+
 # Create your views here.
 
 
@@ -39,7 +39,6 @@ def show_teachers_grid(request, pk=None):
                 annotate_alimony_count=F('salary')/100 * F('alimony'),
             ).order_by('-deductions')
         
-        
         totals = Wage.objects.select_related().filter(today_date).\
                 order_by('-deductions').\
                 aggregate(Count('pk'),
@@ -54,15 +53,6 @@ def show_teachers_grid(request, pk=None):
             'annotates': annotates
         }
         
-    else:
-        teacher=get_object_or_404(Wage,pk=pk)
-        template_='wages_detail.html'
-        
-        context = {
-            'header': get_grid_title(),
-            'teacher': teacher,
-        }
-
     return render(request=request, template_name=template_, context=context)
 
 

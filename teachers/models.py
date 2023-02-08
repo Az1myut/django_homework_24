@@ -4,6 +4,8 @@ from persons.models import PersonAbstract
 
 
 class Teacher(PersonAbstract):
+    subject = models.ManyToManyField(to='subjects.Subject', related_name='subject_teacher')
+
     class Meta:
         verbose_name = 'Учитель'
         verbose_name_plural = 'Учителя'

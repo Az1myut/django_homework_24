@@ -8,6 +8,7 @@ class PersonAbstract(models.Model):
     birth_day = models.DateField(verbose_name='Дата рождения', auto_now_add=True)
     email = models.EmailField(verbose_name='e-mail')
     phone = models.CharField(verbose_name='Телефон', max_length=14)
+    image = models.ImageField(verbose_name='Изображение', blank=True)
 
     class Meta:
         abstract = True
