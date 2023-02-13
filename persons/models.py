@@ -1,5 +1,5 @@
 from django.db import models
-
+from .validators import is_phone_number
 # Create your models here.
 
 class PersonAbstract(models.Model):
@@ -7,8 +7,8 @@ class PersonAbstract(models.Model):
     last_name = models.CharField(verbose_name='Фамилия', max_length=150)
     birth_day = models.DateField(verbose_name='Дата рождения', auto_now_add=True)
     email = models.EmailField(verbose_name='e-mail')
-    phone = models.CharField(verbose_name='Телефон', max_length=14)
-    image = models.ImageField(verbose_name='Изображение', blank=True)
+    phone = models.CharField(verbose_name='Телефон', max_length=14,validators=[is_phone_number])
+    image=models.ImageField(verbose_name='Изображение',blank=True)
 
     class Meta:
         abstract = True

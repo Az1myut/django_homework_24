@@ -1,11 +1,10 @@
 from django.db import models
-
+from classes.models import Class
 from persons.models import PersonAbstract
 
 
 class Teacher(PersonAbstract):
-    subject = models.ManyToManyField(to='subjects.Subject', related_name='subject_teacher')
-
+    on_class = models.ManyToManyField(verbose_name='Предмет', to=Class, related_name='teacher_class')
     class Meta:
         verbose_name = 'Учитель'
         verbose_name_plural = 'Учителя'

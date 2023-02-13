@@ -1,0 +1,23 @@
+{% extends 'layout/base.html' %}
+
+
+{% block content %}
+    
+{% if user.is_authenticated %}
+        
+  
+        
+    <h3> Имя : {{ current_student.first_name }} {{ current_student.last_name }}</h3>
+    <h3>Группа : {{ current_student.group }} </h3>
+    <h3>Предметы :</h3>
+    {% for subject in current_student.on_class.all %}
+        <h5>{{ subject }}</h5>
+    {% endfor %}
+
+    <a class="btn btn-primary" href="{% url 'students:show_students_grid' %}"> Обратно </a>
+
+    {% else %}
+        <h3> Имя : {{ current_student.first_name }} {{ current_student.last_name }}</h3>
+    {% endif %}
+{% endblock content %}
+    

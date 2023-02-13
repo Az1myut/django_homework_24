@@ -13,7 +13,7 @@
  * @todo prevent animationend bubling
  * @todo itemsScaleUp
  * @todo Test Zepto
- * @todo stagePadding calculate wrong active subjects
+ * @todo stagePadding calculate wrong active classes
  */
 ;(function($, window, document, undefined) {
 
@@ -497,7 +497,7 @@
 
 	/**
 	 * Setups the current settings.
-	 * @todo Remove responsive subjects. Why should adaptive designs be brought into IE8?
+	 * @todo Remove responsive classes. Why should adaptive designs be brought into IE8?
 	 * @todo Support for media queries by using `matchMedia` would be nice.
 	 * @public
 	 */
@@ -2415,7 +2415,7 @@
 	};
 
 	/**
-	 * Toggles the animation subjects whenever an translations starts.
+	 * Toggles the animation classes whenever an translations starts.
 	 * @protected
 	 * @returns {Boolean|undefined}
 	 */

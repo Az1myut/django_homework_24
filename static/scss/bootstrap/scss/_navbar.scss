@@ -155,7 +155,7 @@
 }
 
 // scss-docs-start navbar-expand-loop
-// Generate series of `.navbar-expand-*` responsive subjects for configuring
+// Generate series of `.navbar-expand-*` responsive classes for configuring
 // where your navbar collapses.
 .navbar-expand {
   @each $breakpoint in map-keys($grid-breakpoints) {

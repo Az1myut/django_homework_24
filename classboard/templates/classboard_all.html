@@ -44,7 +44,7 @@
         <div class="col-12">
             <p>День недели: {{ item.class_day }} </p>
             <p>Пара: {{ item.class_pair }} </p>
-            <h3>Предмет: {{ item.subject_name }}</h3>
+            <h3>Предмет: {{ item.class_name }}</h3>
             <h4>Группа: {{ item.group }}</h4>
             <p>Преподаватель(ли):
                 {% for item_teacher in item.teacher.all %}
@@ -53,7 +53,7 @@
             </p>
 
 
-            <a class="btn btn-primary" href="{% url 'classboard_view' item.pk %}"> Перейти </a>
+            <a class="btn btn-primary" href="{% url 'classboard:classboard_view' item.pk %}"> Перейти </a>
         </div>
     {% endfor %}
 
