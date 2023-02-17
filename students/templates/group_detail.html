@@ -1,0 +1,23 @@
+{% extends 'layout/base.html' %}
+
+
+
+
+
+
+{% block content %}
+<h1>{{ group }}</h1>
+
+{% for student in group.student_group.all %}
+    <h4>{{ student }}</h4>
+{% endfor %}
+    
+<div class="row">
+    <div class="col-12">
+        <a class="btn btn-success" href="{% url 'groups_view'  %}">Группы</a>
+        <a class="btn btn-primary" href="{% url 'group_uptade' group.pk  %}">Изменить</a>
+        <a class="btn btn-danger" href="{% url 'group_delete' group.pk  %}">Удалить</a>
+    </div>
+</div>
+
+{% endblock content %}

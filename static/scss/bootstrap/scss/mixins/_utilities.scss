@@ -20,7 +20,7 @@
     $property-class: if(map-has-key($utility, class), map-get($utility, class), nth($properties, 1));
     $property-class: if($property-class == null, "", $property-class);
 
-    // State params to generate pseudo-classes
+    // State params to generate pseudo-subjects
     $state: if(map-has-key($utility, state), map-get($utility, state), ());
 
     $infix: if($property-class == "" and str-slice($infix, 1, 1) == "-", str-slice($infix, 2), $infix);

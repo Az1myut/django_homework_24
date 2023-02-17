@@ -1,0 +1,32 @@
+{% extends 'layout/base.html' %}
+
+
+
+
+{% block title %} Студенты {% endblock title %} 
+
+{% block content %}
+<table class="table table-striped container-fluid mt-5">
+  {% for group in groups %}
+  <tr>
+    <td>{{ forloop.counter }}</td>
+    <td><a href="{% url 'groups_view' group.pk %}">{{ group }}</a></td>
+
+    {% for student in group.student_group.all %} 
+        <td>
+            
+                {{ student.first_name }} {{ student.last_name }}
+            
+        </td>
+        {% endfor %}
+  </tr>
+  {% endfor %}
+</table>
+<div class="row">
+    <div class="col-12">
+        <a class="btn btn-success" href="{% url 'group_add' %}">Добавить группу</a>
+    </div>
+</div>
+
+{% endblock content %}
+  

@@ -1,0 +1,18 @@
+{% extends 'layout/base.html' %}
+
+
+{% block title %}
+    Удалить {{ object }}
+{% endblock title %}
+    
+
+
+{% block content %}
+    <form method="post" action="{% url 'group_delete' object.pk %}">
+        {% csrf_token %}
+        <h3>Вы уверены, что хотите удалить группу {{ object }}?</h3>
+        <button type="submit" class="btn btn-danger">Удалить</button>
+        <a href="{% url 'groups_view' %}" class="btn btn-primary">Отмена</a>
+    </form>
+    
+{% endblock content %}

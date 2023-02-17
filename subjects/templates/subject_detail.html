@@ -1,0 +1,17 @@
+{% extends "layout/base.html" %}
+
+{% block title %}
+    {{ class.name }}
+{% endblock title %}
+    
+{% block content %}
+    <h3>{{ subject.name }}</h3>
+    
+    {% for teacher in  subject.subject_teacher.all %}
+        <h6>{{ teacher }}</h6>
+    {% endfor %}
+    <a class="btn btn-info" href="{% url 'subjects:subject_uptade' subject.pk %}">Изменить</a> 
+    <a class="btn btn-danger" href="{% url 'subjects:subject_delete' subject.pk %}">Удалить</a> 
+    <a class="btn btn-info" href="{% url 'subjects:subjects_view' %}">Обратно</a>
+{% endblock content %}
+    

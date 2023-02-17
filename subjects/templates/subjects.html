@@ -1,0 +1,29 @@
+{% extends "layout/base.html" %}
+
+{% block title %}
+    Занятия
+{% endblock title %}
+    
+{% block content %}
+<table class="table table-striped container-fluid mt-5">
+     {% for subject in subjects %}
+        <tr>
+            <td>
+                <a href="{{ subject.get_absolute_url }}">{{ subject.name }}</a>
+            </td>
+            
+            {% for teacher in subject.subject_teacher.all %}
+                <td>
+                    {{ teacher }}
+                </td>
+            {% endfor %}
+                
+        </tr>
+        
+        
+
+     {% endfor %}
+
+    </table>
+    <a class="btn btn-primary" href="{% url 'subjects:subject_add' %}">Добавить предмет</a>
+{% endblock content %}

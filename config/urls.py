@@ -15,20 +15,23 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
+from django.conf.urls.static import static
+from django.conf import settings
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('teachers/', include('teachers.urls', namespace='teachers.teachers')),
-    path('classes/', include('classes.urls', namespace='classes.classes')),
+    path('subjects/', include('subjects.urls', namespace='subjects.subjects')),
     path('classboard/', include('classboard.urls')),
+    path('students/', include('students.urls')),
+    path('students/', include('students.urls')),
     path('wages/', include('wages.urls', namespace='wages.wages')),
-    path('students/', include('students.urls', namespace='students.students')),
     path('contacts/', include('contacts.urls', namespace='contacts.contacts')),
     path('', include('mainpage.urls', namespace='mainpage.mainpage')),
-    
-
 
     path("accounts/", include("django.contrib.auth.urls")),
 
     path('__debug__/', include('debug_toolbar.urls')),
 ]
+
+urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

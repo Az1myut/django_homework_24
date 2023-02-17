@@ -1,17 +1,14 @@
-from tempfile import template
-from unittest import removeResult
 from django.shortcuts import render
-from django.template import context
 from teachers.models import Teacher
-from classes.models import Class
+from subjects.models import Subject
+
 # Create your views here.
 
-def index(request)->render:
-    teachers=Teacher.objects.all()
-    subjects=Class.objects.all()
-    context={
-        'teachers':teachers,
-        'subjects':subjects,
+def show_mainpage(request):
+    template_ = 'mainpage.html'
+    teachers = Teacher.objects.all()
+
+    context = {
+        'teachers': teachers,
     }
-    template_='mainpage.html'
-    return render(request,template_,context)
+    return render(request=request, template_name=template_, context=context)
