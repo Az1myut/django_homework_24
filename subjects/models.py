@@ -17,7 +17,7 @@ class SubjectAbstract(models.Model):
 
     def get_absolute_url(self):
         from django.urls import reverse
-        return reverse("subjects:subjects_view", kwargs={"pk": self.pk})
+        return reverse("classes:class_view", kwargs={"pk": self.pk})
 
 
 class Subject(SubjectAbstract):

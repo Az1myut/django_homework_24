@@ -85,16 +85,13 @@
                     <a href="{% url 'student_add' %}" class="dropdown-item">Добавить студента</a>
                 
                 </div>
-           
             </div>
             <a class="nav-item nav-link
             {% if request.path == contact_page %}
                 active
             {% endif %}
                 " aria-current="page" href="{% url 'contacts:contact_page' %}">Контакты
-             </a>
-             <a class="nav-item nav-link"aria-current="page" href="{% url 'groups_view' %}">Группы
-            </a>
+        </a>
         </div>
         <a href="" class="btn btn-primary py-4 px-lg-5 d-none d-lg-block"><i class="fa fa-arrow-right ms-3"></i></a>
     </div>

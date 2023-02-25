@@ -50,6 +50,7 @@ INSTALLED_APPS = [
     'wages',
     'mainpage',
     'contacts.apps.ContactsConfig',
+    'testimonials.apps.TestimonialsConfig',
 ]
 
 MIDDLEWARE = [
@@ -164,3 +165,6 @@ DEBUG_TOOLBAR_PANELS = [
     'debug_toolbar.panels.redirects.RedirectsPanel',
     'debug_toolbar.panels.profiling.ProfilingPanel',
 ]
+
+LOGIN_URL = 'login'
+LOGOUT_URL = 'logout'

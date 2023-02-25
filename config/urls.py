@@ -17,6 +17,7 @@ from django.contrib import admin
 from django.urls import path, include
 from django.conf.urls.static import static
 from django.conf import settings
+from django.contrib.auth import views as auth_views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -24,14 +25,18 @@ urlpatterns = [
     path('subjects/', include('subjects.urls', namespace='subjects.subjects')),
     path('classboard/', include('classboard.urls')),
     path('students/', include('students.urls')),
-    path('students/', include('students.urls')),
     path('wages/', include('wages.urls', namespace='wages.wages')),
     path('contacts/', include('contacts.urls', namespace='contacts.contacts')),
+    path('testimonials/', include('testimonials.urls', namespace='testimonials.testimonials')),
     path('', include('mainpage.urls', namespace='mainpage.mainpage')),
 
     path("accounts/", include("django.contrib.auth.urls")),
-
+    path("login/", auth_views.LoginView.as_view(template_name = "login.html"), name='login'),
+    path("logout/", auth_views.LogoutView.as_view(), name='logout'),
     path('__debug__/', include('debug_toolbar.urls')),
 ]
 
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+urlpatterns += [
+    path('accounts/', include('django.contrib.auth.urls')),
+]

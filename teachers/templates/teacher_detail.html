@@ -8,7 +8,9 @@
             <p>{{ current_teacher.birth_day|date:"d M y"}}</p>
             <p>{{ current_teacher.email }}</p>
             <p>{{ current_teacher.phone }}</p>
-            <p><a class="btn btn-primary" href="{% url 'teachers:view_teachers' %}"> Обратно </a></p>
+            <p><a class="btn btn-primary" href="{% url 'teachers:view_teachers'  %}"> Обратно </a></p>
+            <p><a class="btn btn-primary" href="{% url 'teachers:delete_teachers' current_teacher.pk %}"> Удалить </a></p>
+            <p><a class="btn btn-primary" href="{% url 'teachers:update_teachers' current_teacher.pk %}"> Изменить </a></p>
         </div>
     </div>
 {% endblock content %}
