@@ -8,6 +8,7 @@
     <th>Активен</th>
     <th>Дата создания</th>
     <th>Дата изменения</th>
+    <th>Действия</th>
   </thead>
   <tbody>
     {% for testimonial_item in testimonials %}
@@ -24,6 +25,7 @@
       <td>{{ testimonial_item.active }}</td>
       <td>{{ testimonial_item.create_at }}</td>
       <td>{{ testimonial_item.update_at }}</td>
+      <td><a href="{% url 'testimonials:testimonials_delete' testimonial_item.pk %}">Удалить</a></td>
     </tr>
 
     {% endfor %}

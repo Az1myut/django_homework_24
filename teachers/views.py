@@ -1,9 +1,9 @@
 from django.shortcuts import render, get_object_or_404
 from django.utils.crypto import get_random_string
-from django.views.generic import DeleteView, UpdateView, CreateView 
+
 from .models import Teacher
-from django.urls import reverse_lazy
-from .forms import TeacherForm
+
+
 # Create your views here.
 def view_teachers(request, pk=None) -> render:
     
@@ -39,19 +39,3 @@ def view_teachers(request, pk=None) -> render:
        
     return render(request=request, template_name=template, context=context)
     
-class TeacherCreateView(CreateView):
-    success_url = reverse_lazy('teachers:view_teachers')
-    template_name = 'teachers_create.html'
-    form_class = TeacherForm
-    model = Teacher
-
-class TeacherUpdateView(UpdateView):
-    success_url = reverse_lazy('teachers:view_teachers')
-    template_name = 'teachers_create.html'
-    form_class = TeacherForm
-    model = Teacher
-
-class TeacherDeleteView(DeleteView):
-    success_url = reverse_lazy('teachers:view_teachers')
-    template_name = 'teachers_delete.html'
-    model = Teacher

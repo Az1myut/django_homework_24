@@ -1,0 +1,22 @@
+{% extends 'layout/base.html' %}
+
+
+{% block title %}
+    Удалить {{ object }}
+{% endblock title %}
+    
+
+
+{% block content %}
+<section class="py-5 text-center">
+<div class="container-xxl py-5 wow fadeInUp mb-5 mt-5 pl-10 pr-10"  data-wow-delay="0.1s">
+    <form method="post" action="{% url 'articles:article_delete' object.pk %}">
+        {% csrf_token %}
+        <h3>Вы уверены, что хотите удалить статью: "{{ object }}"?</h3>
+        <button type="submit" class="btn btn-danger">Удалить</button>
+        <a href="{% url 'articles:articles_list' %}" class="btn btn-primary">Отмена</a>
+    </form>
+    </div>
+    </section>
+    
+{% endblock content %}

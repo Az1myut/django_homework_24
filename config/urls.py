@@ -21,6 +21,7 @@ from django.contrib.auth import views as auth_views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('', include('mainpage.urls', namespace='mainpage.mainpage')),
     path('teachers/', include('teachers.urls', namespace='teachers.teachers')),
     path('subjects/', include('subjects.urls', namespace='subjects.subjects')),
     path('classboard/', include('classboard.urls')),
@@ -28,7 +29,9 @@ urlpatterns = [
     path('wages/', include('wages.urls', namespace='wages.wages')),
     path('contacts/', include('contacts.urls', namespace='contacts.contacts')),
     path('testimonials/', include('testimonials.urls', namespace='testimonials.testimonials')),
-    path('', include('mainpage.urls', namespace='mainpage.mainpage')),
+    path('articles/', include('articles.urls', namespace='articles.articles')),
+    path('search/', include('site_searches.urls', namespace='site_searches.search')),
+
 
     path("accounts/", include("django.contrib.auth.urls")),
     path("login/", auth_views.LoginView.as_view(template_name = "login.html"), name='login'),

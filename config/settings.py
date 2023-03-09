@@ -13,6 +13,7 @@ https://docs.djangoproject.com/en/4.1/ref/settings/
 from pathlib import Path
 import os
 
+
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -51,6 +52,8 @@ INSTALLED_APPS = [
     'mainpage',
     'contacts.apps.ContactsConfig',
     'testimonials.apps.TestimonialsConfig',
+    'articles.apps.ArticlesConfig',
+    'site_searches.apps.SiteSearchesConfig',
 ]
 
 MIDDLEWARE = [
@@ -168,3 +171,6 @@ DEBUG_TOOLBAR_PANELS = [
 
 LOGIN_URL = 'login'
 LOGOUT_URL = 'logout'
+
+LOGIN_REDIRECT_URL = '/'
+LOGOUT_REDIRECT_URL = '/'

@@ -1,0 +1,9 @@
+<section class="bg-dark text-ligh p-3">
+    <div class="position-relative mx-auto " style="max-width: 400px;">
+        <form action="{% url 'search:search_results' %}" method="get">
+            {% csrf_token %}
+            <input class="form-control border-0 w-100 py-3 ps-4 pe-5" name='q' type="text" placeholder="Что искать">
+            <button type="submit" class="btn btn-primary py-2 position-absolute top-0 end-0 mt-2 me-2">Искать</button>
+        </form> 
+    </div>
+</section>

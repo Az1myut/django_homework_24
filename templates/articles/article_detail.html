@@ -1,0 +1,64 @@
+{% extends 'layout/base.html' %}
+
+
+{% block title %}
+    {{ object }}
+{% endblock title %}
+
+{% block content %}
+        <!-- About Start -->
+        <div class="container-xxl py-5">
+            <div class="container">
+                <div class="row g-5">
+                    <div class="col-lg-6 wow fadeInUp" data-wow-delay="0.1s" style="min-height: 400px;">
+                        <div class="position-relative h-100">
+                            <img class="img-fluid position-absolute w-100 h-100" src="{{ article.image.url}}" alt="" style="object-fit: cover;">
+                        </div>
+                    </div>
+                    <div class="col-lg-6 wow fadeInUp" data-wow-delay="0.3s">
+                        <h6 class="section-title bg-white text-start text-primary pe-3">{{ article.updated_at|date:"d-M-Y"}}|{{ article.author }}</h6>
+                        <h1 class="mb-4">{{ article.title }}</h1>
+                        <p class="mb-4">{{ article.text }}</p>
+                        <a class="btn btn-primary py-3 px-5 mt-2" href="{% url 'articles:articles_list' %}">Назад</a>
+                    </div>
+                    
+                </div>
+            </div>
+        </div>
+        <!-- About End -->
+        {% if user.is_authenticated %}
+
+            <div class="container-xxl py-5">
+                <div class="container">
+                    <div class="row g-5">
+                        <div class="col-lg-6 wow fadeInUp" data-wow-delay="0.1s" style="min-height: 400px;">
+                            <form action="" method="post">
+                            {% csrf_token %}
+                            {{ form.as_p }}
+                            <input type="submit" class="btn btn-primary py-3 px-5 mt-2" value="Отправить">
+                        </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+                    
+        {% endif %}
+
+        
+        <ul>
+            {% for comment_item in comments %}
+            <li>           
+             <div>
+                <span>
+                  <strong class="text-info">{{ comment_item.author }} </strong>
+                  <small class="text-muted">{{ comment_item.update_at }}</small>
+                </span>
+                <p>
+                  {{ comment_item.text|safe }}
+                </p>
+              </div>
+            </li>
+            {% endfor %}
+        </ul>
+            
+{% endblock content %}

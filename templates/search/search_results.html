@@ -1,0 +1,62 @@
+{% extends 'layout/base.html' %}
+
+
+{% block title %}
+    Удалить {{ object }}
+{% endblock title %}
+    
+
+
+{% block content %}
+
+<section class="container mt-4">
+<h1>Поиск</h1>
+{% if object_list %}
+    {% for object in object_list %}
+        <div>
+            <a href="{{ object.get_absolute_url }}">
+                
+                {% if object.title %}
+                    <span class="text-success">Заголовок статьи</span>
+                    <h2>{{ object.title }}</h2>
+                {% endif %}
+                {% if object.text %}
+                    <span class="text-warning">Текст статьи или заголовок отзыва</span>
+                    <h3 class="text-primary">{{ object.text|slice:":100" }}...</h3>
+                {% endif %}            
+                {% if object.testimonial %}
+                    <span>Отзывы</span>
+                    <h2 class="text-info">{{ object.testimonial }}</h2>
+                {% endif %}              
+
+            </a>
+            {{ object.content|safe }}
+            <p><a class="btn btn-info btn-sm" href="{{ object.get_absolute_url }}">Читать далее</a></p>
+        </div>
+    {% endfor %}
+    <hr>
+    <div class="row position-static">
+        <div class="pagination mt-5 position-relative end">
+            <span class="step-links">
+                {% if  object_list.has_previous %}
+                    <a href="{{query}}&page=1">&laquo; Первый</a>
+                    <a href="{{query}}&page={{ object_list.previous_page_number }}">Обратно</a>
+                {% endif %}
+        
+                <span class="current">
+                    Страница {{ object_list.number }} из {{ object_list.paginator.num_pages }}.
+                </span>
+        
+                {% if object_list.has_next %}
+                    <a href="{{query}}&page={{ object_list.next_page_number }}">Следующий</a>
+                    <a href="{{query}}&page={{ object_list.paginator.num_pages }}">Последний &raquo;</a>
+                {% endif %}
+            </span>
+        </div>
+    </div>
+{% else %}
+    <p>Не найдено публикаций по вашему запросу<br>Попробуйте повторить запрос с другой формулировкой</p>
+    <p><a class="btn btn-info btn-sm" href="/">На главную</a></p>
+{% endif %}
+</section>
+{% endblock content %}

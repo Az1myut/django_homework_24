@@ -1,0 +1,18 @@
+{% extends 'layout/base.html' %}
+
+
+{% block title %}
+    Удалить {{ object }}
+{% endblock title %}
+    
+
+
+{% block content %}
+    <form method="post" action="{% url 'testimonials:testimonials_delete' object.pk %}">
+        {% csrf_token %}
+        <h3>Вы уверены, что хотите удалить отзыв {{ object }}?</h3>
+        <button type="submit" class="btn btn-danger">Удалить</button>
+        <a href="{% url 'testimonials:testimonials_list' %}" class="btn btn-primary">Отмена</a>
+    </form>
+    
+{% endblock content %}

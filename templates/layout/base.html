@@ -4,7 +4,7 @@
 {% url 'wages:show_teachers_grid' as show_teachers_grid %}
 {% url 'students_view' as students_view %}
 {% url 'contacts:contact_page' as contact_page %}
-
+{% url 'articles:articles_list' as articles_list %}
 {% load static %}
 
 <!DOCTYPE html>
@@ -47,6 +47,10 @@
 <body>
 {% include 'layout/nav.html' %}
 
+
+
+<div class="container-fluid">
 {% block content %}
 {% endblock content %}
+</div>
 {% include 'layout/footer.html' %}

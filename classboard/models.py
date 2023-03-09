@@ -11,8 +11,7 @@ class Classboard(models.Model):
     class_pair = models.CharField(verbose_name='Пара', max_length=6, choices=SubjectPairChoices.choices,
                                   default=SubjectPairChoices.PAIR_1)
     subject_name = models.ForeignKey(verbose_name='Занятие', to='subjects.Subject', on_delete=models.CASCADE)
-    group = models.ForeignKey(verbose_name='Группа', to='students.Group', on_delete=models.CASCADE,
-                                                                        related_name='classboard_group')
+    group = models.ForeignKey(verbose_name='Группа', to='students.Group', on_delete=models.CASCADE)
     teacher = models.ManyToManyField(verbose_name='Преподаватель', to='teachers.Teacher', related_name='classboard_teacher')
 
     class Meta:
@@ -22,4 +21,4 @@ class Classboard(models.Model):
         verbose_name_plural = 'Расписание'
 
     def __str__(self) -> str:
-        return f'{self.subject_name} {self.group}'
+        return f'{self.subject_name}'

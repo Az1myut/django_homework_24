@@ -1,6 +1,6 @@
 from django.shortcuts import render
 from  django.urls import reverse_lazy
-from django.views.generic.base import TemplateView, RedirectView
+from django.views.generic.base import TemplateView
 from django.views.generic.detail import DetailView, SingleObjectMixin
 from django.views.generic import CreateView, UpdateView, DeleteView, ListView 
 from django.contrib.auth.mixins import LoginRequiredMixin
@@ -30,8 +30,4 @@ class TestimonialUpdateView(LoginRequiredMixin, UpdateView):
 class TestimonialDeleteView(LoginRequiredMixin, DeleteView):
     model = Testimonial
     template_name = 'testimonials/testimonial_confirm_delete.html'
-    success_url = reverse_lazy('mainpage:mainpage')
-
-class TestimonialRedirectView(RedirectView):
-    pattern_name = 'testimonials:testimonials_list'
-    # url = '/testimonials/'
+    success_url = reverse_lazy('testimonials:testimonials_list')

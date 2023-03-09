@@ -4,9 +4,9 @@ from .models import Testimonial
 
 
 class TestimonialAdmin(admin.ModelAdmin):
-    list_display = ('title', 'testimonial', 'create_at', 'update_at', 'active')
+    list_display = ('title', 'testimonial', 'created_at', 'updated_at', 'active')
     list_editable = ('active',)
-    search_fields = ('title', 'testimonial', 'create_at', 'update_at')
-    list_filter = ('title', 'testimonial', 'create_at', 'update_at')
+    search_fields = ('title', 'testimonial', 'created_at', 'updated_at')
+    list_filter = ('title', 'testimonial', 'created_at', 'updated_at')
 
 admin.site.register(Testimonial, TestimonialAdmin)
